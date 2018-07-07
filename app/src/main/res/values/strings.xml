@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">mongoDBTest</string>
+    <string name="facebook_app_id">234904893765548</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!--<string name="uri">\"mongodb://kay:opalim10082!@mycluster0-shard-00-00.mongodb.net:27017,mycluster0-shard-00-01.mongodb.net:27017,mycluster0-shard-00-02.mongodb.net:27017/admin?ssl=true&replicaSet=Mycluster0-shard-0&authSource=admin\"</string>-->
+</resources>
