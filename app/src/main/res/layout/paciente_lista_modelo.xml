@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/paciente_ll"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:weightSum="1"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/lbNmPaciente"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nome do paciente: "></TextView>
+
+            <TextView
+                android:id="@+id/lbPaciente"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Paciente"></TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/lbNmData"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Data de Nascimento: "></TextView>
+
+            <TextView
+                android:id="@+id/lbData"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Data"></TextView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/lbNmSexo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sexo: "></TextView>
+
+            <TextView
+                android:id="@+id/lbSexo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="M"></TextView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/lbNmReputacao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Reputação: "></TextView>
+
+            <TextView
+                android:id="@+id/lbReputacao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5"></TextView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_gravity="center_vertical"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/img_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_edit_black_24dp"
+            android:layout_marginBottom="12dp"/>
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/img_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_delete_forever_black_24dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>
