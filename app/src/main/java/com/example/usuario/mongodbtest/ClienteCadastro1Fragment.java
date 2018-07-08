@@ -21,7 +21,6 @@ public class ClienteCadastro1Fragment extends Fragment {
     private static final String ARG_PARAM2 = "param2";
 
     private OnClienteCadastro1FragmentListener mListener;
-    public String aa;
 
     public Button mButtonNext;
     public EditText etNome;
