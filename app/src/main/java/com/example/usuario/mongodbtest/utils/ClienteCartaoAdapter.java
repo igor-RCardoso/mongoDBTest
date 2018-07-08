@@ -8,31 +8,29 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.usuario.mongodbtest.R;
-import com.example.usuario.mongodbtest.models.EnderecoModel;
-import com.example.usuario.mongodbtest.models.User;
+import com.example.usuario.mongodbtest.models.CartaoModel;
 
 import java.util.List;
 
-public class CustomAdapter extends BaseAdapter {
+public class ClienteCartaoAdapter  extends BaseAdapter {
 
     private Context mContext;
-    private List<EnderecoModel> lstEnd;
+    private List<CartaoModel> lstCartao;
 
-    public CustomAdapter(Context mContext, List<EnderecoModel> lstEnd){
+    public ClienteCartaoAdapter(Context mContext, List<CartaoModel> lstCartao){
         this.mContext = mContext;
-        this.lstEnd = lstEnd;
-
+        this.lstCartao = lstCartao;
     }
 
 
     @Override
     public int getCount() {
-        return this.lstEnd.size();
+        return this.lstCartao.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return this.lstEnd.get(position);
+        return this.lstCartao.get(position);
     }
 
     @Override
@@ -45,7 +43,7 @@ public class CustomAdapter extends BaseAdapter {
         LayoutInflater inflater = (LayoutInflater)mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.row, null);
         TextView txtUser = (TextView) view.findViewById(R.id.txtUser);
-        txtUser.setText(this.lstEnd.get(position).getNumero() + ", " + this.lstEnd.get(position).getRua());
+        txtUser.setText(this.lstCartao.get(position).getApelido());
         return view;
     }
 }

@@ -103,34 +103,47 @@
                 android:layout_weight="0.7"
                 android:id="@+id/et_uf"/>
         </LinearLayout>
-
-        <Button
-            android:id="@+id/addEnd"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:text="Adicionar"
-            android:layout_marginTop="15dp"
-            android:layout_gravity="center_horizontal"
-            android:textColor="@android:color/white"
-            android:background="@color/colorPrimary"
-            android:layout_marginBottom="10dp"/>
-        <ListView
-            android:id="@+id/list_view_endereco"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"></ListView>
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:weightSum="2">
 
+            <Button
+                android:id="@+id/addEnd"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="Adicionar"
+                android:layout_marginTop="15dp"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@android:color/white"
+                android:background="@color/colorPrimary"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="0"
+                />
+            <ListView
+                android:id="@+id/list_view_endereco"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="8dp"
+                android:layout_weight="2"></ListView>
+
+            <Button
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="Continuar Cadastro"
+                android:layout_marginTop="15dp"
+                android:layout_gravity="bottom|center_horizontal"
+                android:textColor="@android:color/white"
+                android:background="@color/colorPrimary"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="0"
+                android:id="@+id/btCadastro2"
+                />
+        </LinearLayout>
     </LinearLayout>
 
-    <Button
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:text="Continuar Cadastro"
-        android:layout_marginTop="15dp"
-        android:layout_gravity="bottom|center_horizontal"
-        android:textColor="@android:color/white"
-        android:background="@color/colorPrimary"
-        android:layout_marginBottom="10dp"
-        />
+
 </FrameLayout>

@@ -100,7 +100,7 @@ public class ClienteCadastro1Fragment extends Fragment {
                 if (cbTestJeova.isChecked()) desc = desc + "Testemunha de Jeová, ";
 
                 if(!etObs.getText().toString().isEmpty()) desc = desc  + etObs.getText().toString();
-                mListener.nextTo2(etNome.getText().toString(), etCpf.getText().toString(),
+                mListener.goTo2(etNome.getText().toString(), etCpf.getText().toString(),
                         etEmail.getText().toString(), etTel.getText().toString(), etCel.getText().toString(),
                         etSenha.getText().toString(), etRepSenha.getText().toString(), desc);
 
@@ -128,7 +128,7 @@ public class ClienteCadastro1Fragment extends Fragment {
     }
 
     public interface OnClienteCadastro1FragmentListener {
-        void nextTo2(String nome, String cpf, String email,
+        void goTo2(String nome, String cpf, String email,
                      String tel, String cel, String senha, String repSenha, String desc);
     }
 

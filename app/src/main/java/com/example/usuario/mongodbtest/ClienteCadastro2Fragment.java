@@ -11,8 +11,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 
 import com.example.usuario.mongodbtest.models.EnderecoModel;
+import com.example.usuario.mongodbtest.utils.CustomAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,6 +41,7 @@ public class ClienteCadastro2Fragment extends Fragment {
     private OnClienteCadastro2FragmentListener mListener;
 
     public Button mButtonAdd;
+    public Button mButtonNext;
     public EditText etCep;
     public EditText etRua;
     public EditText etBairro;
@@ -46,6 +49,7 @@ public class ClienteCadastro2Fragment extends Fragment {
     public EditText etComplemento;
     public EditText etCidade;
     public EditText etUf;
+    public ListView lstView;
 
     public List<EnderecoModel> enderecoModels;
 
@@ -99,6 +103,10 @@ public class ClienteCadastro2Fragment extends Fragment {
         etN = view.findViewById(R.id.et_n);
         etRua = view.findViewById(R.id.et_rua);
         etUf = view.findViewById(R.id.et_uf);
+        lstView = view.findViewById(R.id.list_view_endereco);
+        mButtonNext = view.findViewById(R.id.btCadastro2);
+
+        lstView.getId();
 
         enderecoModels = new ArrayList<EnderecoModel>();
 
@@ -109,8 +117,14 @@ public class ClienteCadastro2Fragment extends Fragment {
                 etBairro.getText().toString(), etCidade.getText().toString(), etUf.getText().toString(),
                 etComplemento.getText().toString(), etCep.getText().toString());
                 enderecoModels.add(enderecoModel);
-                Log.i("TESTE", enderecoModels.size() + "");
+                mListener.addEndereco(enderecoModels, lstView);
 
+            }
+        });
+        mButtonNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mListener.goTo3(enderecoModels);
             }
         });
 
@@ -142,8 +156,9 @@ public class ClienteCadastro2Fragment extends Fragment {
     }
 
     public interface OnClienteCadastro2FragmentListener {
-        void goTo3(String nome, String cpf, String email,
-                     String tel, String cel, String senha, String repSenha, String desc);
+        void goTo3(List<EnderecoModel> enderecoModels);
+
+        void addEndereco(List<EnderecoModel> enderecoModels, ListView lstView);
     }
 
 }

@@ -1,5 +1,6 @@
 package com.example.usuario.mongodbtest;
 
+import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
@@ -12,9 +13,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.ListView;
+
 import java.sql.*;
 
+import com.example.usuario.mongodbtest.models.CartaoModel;
 import com.example.usuario.mongodbtest.models.EnderecoModel;
+import com.example.usuario.mongodbtest.utils.ClienteCartaoAdapter;
+import com.example.usuario.mongodbtest.utils.CustomAdapter;
 import com.shuhart.stepview.StepView;
 
 import java.util.ArrayList;
@@ -22,9 +28,10 @@ import java.util.List;
 
 public class ClienteCadastroActivity extends FragmentActivity
         implements ClienteCadastro1Fragment.OnClienteCadastro1FragmentListener,
-        ClienteCadastro2Fragment.OnClienteCadastro2FragmentListener{
+        ClienteCadastro2Fragment.OnClienteCadastro2FragmentListener, ClienteCadastro3Fragment.OnClienteCadastro3FragmentListener{
     FrameLayout mainFrame;
     StepView stepView;
+//    ListView lstView;
 
 
 
@@ -59,7 +66,6 @@ public class ClienteCadastroActivity extends FragmentActivity
         setFragment(clienteCadastro1Fragment);
 
 
-
     }
 
 
@@ -71,7 +77,7 @@ public class ClienteCadastroActivity extends FragmentActivity
 
 
     @Override
-    public void nextTo2(String nome, String cpf, String email, String tel, String cel, String senha, String repSenha, String desc) {
+    public void goTo2(String nome, String cpf, String email, String tel, String cel, String senha, String repSenha, String desc) {
         //TODO Implementar o model e crirar objeto aqui...
         stepView.go(1, true);
         setFragment(new ClienteCadastro2Fragment());
@@ -79,7 +85,25 @@ public class ClienteCadastroActivity extends FragmentActivity
     }
 
     @Override
-    public void goTo3(String nome, String cpf, String email, String tel, String cel, String senha, String repSenha, String desc) {
+    public void goTo3(List<EnderecoModel> enderecoModels) {
+        stepView.go(2, true);
+        setFragment(new ClienteCadastro3Fragment());
+    }
 
+    @Override
+    public void addEndereco(List<EnderecoModel> enderecoModels, ListView lstView) {
+        CustomAdapter adapter = new CustomAdapter(getApplicationContext(), enderecoModels);
+        Log.i("TESTE", lstView.getId() + "");
+        Log.i("TESTE", enderecoModels.size() + "");
+        Log.i("TESTE", adapter.toString());
+
+
+        lstView.setAdapter(adapter);
+    }
+
+    @Override
+    public void addCartao(List<CartaoModel> cartaoModels, ListView lstView) {
+        ClienteCartaoAdapter adapter = new ClienteCartaoAdapter(getApplicationContext(), cartaoModels);
+        lstView.setAdapter(adapter);
     }
 }

@@ -31,7 +31,8 @@
                 android:layout_marginLeft="18dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginTop="6dp"
-                android:hint="Nome do titular"/>
+                android:hint="Nome do titular"
+                android:id="@+id/nm_titular"/>
 
         </LinearLayout>
 
@@ -47,7 +48,8 @@
                 android:layout_marginLeft="18dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginTop="6dp"
-                android:hint="Nº"/>
+                android:hint="Nº"
+                android:id="@+id/num"/>
 
         </LinearLayout>
         <LinearLayout
@@ -60,7 +62,8 @@
                 android:layout_marginLeft="18dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginTop="6dp"
-                android:hint="Apelido"/>
+                android:hint="Apelido"
+                android:id="@+id/apelido"/>
         </LinearLayout>
         <TextView
             android:layout_width="wrap_content"
@@ -76,7 +79,8 @@
             android:layout_gravity="center_horizontal"
             android:textColor="@android:color/white"
             android:background="@color/colorPrimary"
-            android:layout_marginBottom="10dp"/>
+            android:layout_marginBottom="10dp"
+            android:id="@+id/bt_add_cartao"/>
 
         <ListView
             android:id="@+id/list_view_financeiro"
