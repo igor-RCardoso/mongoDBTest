@@ -24,7 +24,11 @@
         </activity>
         <activity android:name=".Main2Activity" />
         <activity android:name=".MedicoCadastroActivity" />
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
+        <activity
+            android:name=".PrincipalUsuarioActivity"
+            android:label="@string/title_activity_principal_usuario"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>
