@@ -30,7 +30,7 @@
             android:layout_marginLeft="18dp"
             android:layout_marginRight="8dp"
             android:layout_marginTop="6dp"
-            android:hint="Nome"/>
+            android:hint="Nome*"/>
         <EditText
             android:id="@+id/etCpf"
             android:layout_width="match_parent"
@@ -38,7 +38,7 @@
             android:layout_marginLeft="18dp"
             android:layout_marginRight="8dp"
             android:layout_marginTop="8dp"
-            android:hint="CPF"/>
+            android:hint="CPF*"/>
         <EditText
             android:id="@+id/etEmail"
             android:layout_width="match_parent"
@@ -46,7 +46,9 @@
             android:layout_marginLeft="18dp"
             android:layout_marginRight="8dp"
             android:layout_marginTop="8dp"
-            android:hint="E-mail"/>
+            android:hint="E-mail*"
+            android:inputType="textEmailAddress"
+            />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -58,8 +60,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="18dp"
                 android:layout_marginRight="8dp"
-                android:hint="Tel"
-                android:layout_weight="1"/>
+                android:hint="Tel*"
+                android:layout_weight="1"
+                android:inputType="number"/>
             <EditText
                 android:id="@+id/etCel"
                 android:layout_width="match_parent"
@@ -67,7 +70,8 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_weight="1"
-                android:hint="Celular"/>
+                android:hint="Celular*"
+                android:inputType="number"/>
         </LinearLayout>
 
 
@@ -82,8 +86,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="18dp"
                 android:layout_marginRight="8dp"
-                android:hint="Senha"
-                android:layout_weight="1"/>
+                android:hint="Senha*"
+                android:layout_weight="1"
+                android:inputType="textPassword"/>
             <EditText
                 android:id="@+id/etRepetirSenha"
                 android:layout_width="match_parent"
@@ -91,7 +96,8 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_weight="1"
-                android:hint="Repetir senha"/>
+                android:hint="Repetir senha*"
+                android:inputType="textPassword"/>
         </LinearLayout>
 
 

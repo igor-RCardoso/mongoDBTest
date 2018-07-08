@@ -116,8 +116,17 @@ public class ClienteCadastro2Fragment extends Fragment {
                 EnderecoModel enderecoModel = new EnderecoModel(etRua.getText().toString(), etN.getText().toString(),
                 etBairro.getText().toString(), etCidade.getText().toString(), etUf.getText().toString(),
                 etComplemento.getText().toString(), etCep.getText().toString());
-                enderecoModels.add(enderecoModel);
-                mListener.addEndereco(enderecoModels, lstView);
+                if(validaCampos(etBairro, etCep, etCidade, etN, etRua, etUf)) {
+                    enderecoModels.add(enderecoModel);
+                    mListener.addEndereco(enderecoModels, lstView);
+                    etCep.setText("");
+                    etBairro.setText("");
+                    etCidade.setText("");
+                    etComplemento.setText("");
+                    etN.setText("");
+                    etUf.setText("");
+                    etRua.setText("");
+                }
 
             }
         });
@@ -129,7 +138,39 @@ public class ClienteCadastro2Fragment extends Fragment {
         });
 
 
-        return view;    }
+        return view;
+    }
+
+    boolean validaCampos(EditText etBairro, EditText etCep, EditText etCidade,
+                         EditText etN, EditText etRua, EditText etUf){
+        boolean flag = true;
+        if(etBairro.getText().toString().isEmpty()){
+            etBairro.setError("Campo obrigatório");
+            flag = false;
+        }
+        if(etCep.getText().toString().isEmpty()){
+            etCep.setError("Campo obrigatório");
+            flag = false;
+        }if(etCidade.getText().toString().isEmpty()){
+            etCidade.setError("Campo obrigatório");
+            flag = false;
+        }if(etN.getText().toString().isEmpty()){
+            etN.setError("Campo obrigatório");
+            flag = false;
+        }if(etRua.getText().toString().isEmpty()){
+            etRua.setError("Campo obrigatório");
+            flag = false;
+        }
+        if(etUf.getText().toString().isEmpty()){
+            etUf.setError("Campo obrigatório");
+            flag = false;
+        }
+
+        return flag;
+
+
+
+    }
 
     // TODO: Rename method, update argument and hook method into UI event
 

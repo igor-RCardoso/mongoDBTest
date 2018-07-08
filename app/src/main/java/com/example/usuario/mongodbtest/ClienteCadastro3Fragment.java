@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,17 +14,10 @@ import android.widget.ListView;
 
 import com.example.usuario.mongodbtest.models.CartaoModel;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link ClienteCadastro3Fragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link ClienteCadastro3Fragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class ClienteCadastro3Fragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -79,6 +73,7 @@ public class ClienteCadastro3Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_cliente_cadastro3, container, false);
+        cartaoModels = new ArrayList<>();
         etApelido = view.findViewById(R.id.apelido);
         etN = view.findViewById(R.id.num);
         etTitular = view.findViewById(R.id.nm_titular);
@@ -90,6 +85,7 @@ public class ClienteCadastro3Fragment extends Fragment {
             public void onClick(View v) {
                 CartaoModel cartaoModel = new CartaoModel(etN.getText().toString(), etTitular.getText().toString(),
                         etApelido.getText().toString());
+                Log.i("TESTE", cartaoModel.getApelido());
                 cartaoModels.add(cartaoModel);
                 mListener.addCartao(cartaoModels, lstView);
             }
@@ -104,7 +100,7 @@ public class ClienteCadastro3Fragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
+        if (context instanceof OnClienteCadastro3FragmentListener) {
             mListener = (OnClienteCadastro3FragmentListener) context;
         } else {
             throw new RuntimeException(context.toString()
@@ -128,10 +124,7 @@ public class ClienteCadastro3Fragment extends Fragment {
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.
      */
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
-    }
+
 
     public interface OnClienteCadastro3FragmentListener {
         void addCartao(List<CartaoModel> cartaoModels, ListView lstView);

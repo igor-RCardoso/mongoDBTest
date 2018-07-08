@@ -17,6 +17,7 @@
         android:layout_height="wrap_content"
         android:src="@drawable/ic_edit_black_24dp"
         android:background="@android:color/transparent"
+        android:id="@+id/bt_edit"
         />
 
     <ImageButton
@@ -24,6 +25,7 @@
         android:layout_height="wrap_content"
         android:src="@drawable/ic_delete_forever_black_24dp"
         android:background="@android:color/transparent"
+        android:id="@+id/bt_exclir_linha"
         />
 
 </LinearLayout>

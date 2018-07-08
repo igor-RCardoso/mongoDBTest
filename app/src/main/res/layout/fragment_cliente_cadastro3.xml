@@ -68,7 +68,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nós não pedimos o código de segurança do seu cartão. A cada compra será solicitada essa informação"
+            android:text="Nós não armazenamos o código de segurança do seu cartão. A cada compra será solicitada essa informação"
             android:layout_marginLeft="18dp"
             android:layout_marginRight="18dp"/>
         <Button

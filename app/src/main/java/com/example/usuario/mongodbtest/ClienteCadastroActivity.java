@@ -62,7 +62,7 @@ public class ClienteCadastroActivity extends FragmentActivity
                 .typeface(ResourcesCompat.getFont(this, R.font.roboto))
                 .commit();
 
-        ClienteCadastro1Fragment clienteCadastro1Fragment = new ClienteCadastro1Fragment();
+        ClienteCadastro2Fragment clienteCadastro1Fragment = new ClienteCadastro2Fragment();
         setFragment(clienteCadastro1Fragment);
 
 

@@ -2,6 +2,7 @@ package com.example.usuario.mongodbtest;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -100,15 +101,61 @@ public class ClienteCadastro1Fragment extends Fragment {
                 if (cbTestJeova.isChecked()) desc = desc + "Testemunha de Jeová, ";
 
                 if(!etObs.getText().toString().isEmpty()) desc = desc  + etObs.getText().toString();
-                mListener.goTo2(etNome.getText().toString(), etCpf.getText().toString(),
-                        etEmail.getText().toString(), etTel.getText().toString(), etCel.getText().toString(),
-                        etSenha.getText().toString(), etRepSenha.getText().toString(), desc);
 
+                if(validaCampos(etNome, etCpf, etEmail, etTel, etCel, etSenha, etRepSenha)) {
+                    mListener.goTo2(etNome.getText().toString(), etCpf.getText().toString(),
+                            etEmail.getText().toString(), etTel.getText().toString(), etCel.getText().toString(),
+                            etSenha.getText().toString(), etRepSenha.getText().toString(), desc);
+                }
             }
         });
         return view;
     }
 
+    public boolean validaCampos(EditText etNome, EditText etCpf, EditText etEmail, EditText etTel,
+                                EditText etCel, EditText etSenha, EditText etRepSenha){
+        boolean flag = true;
+        if(etNome.getText().toString().isEmpty()){
+            etNome.setError("Campo obrigatório");
+            flag = false;
+        }
+        if(etCpf.getText().toString().isEmpty()){
+            etCpf.setError("Campo obrigatório");
+            flag = false;
+        }
+        if(etEmail.getText().toString().isEmpty()){
+            etEmail.setError("Campo obrigatório");
+            flag = false;
+        }
+
+        if(etTel.getText().toString().isEmpty()){
+            etTel.setError("Campo obrigatório");
+            flag = false;
+        }
+
+        if(etCel.getText().toString().isEmpty()){
+            etCel.setError("Campo obrigatório");
+            flag = false;
+        }
+        if(etSenha.getText().toString().isEmpty()){
+            etSenha.setError("Campo obrigatório");
+            flag = false;
+        }
+        if(etRepSenha.getText().toString().isEmpty()){
+            etRepSenha.setError("Campo obrigatório");
+            flag = false;
+        }
+
+
+        if(!etRepSenha.getText().toString().equals(etSenha.getText().toString())){
+            etRepSenha.setError("Senhas não equivalentes");
+            flag = false;
+        }
+
+
+
+        return flag;
+    }
 
     @Override
     public void onAttach(Context context) {

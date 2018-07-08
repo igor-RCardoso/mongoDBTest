@@ -31,7 +31,7 @@
                 android:layout_marginLeft="18dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginTop="6dp"
-                android:hint="CEP"
+                android:hint="CEP*"
                 android:layout_weight="0.64"
                 android:id="@+id/et_cep"/>
 
@@ -42,7 +42,7 @@
                 android:layout_marginRight="8dp"
                 android:layout_marginTop="6dp"
                 android:layout_weight="0.4"
-                android:hint="Rua"
+                android:hint="Rua*"
                 android:id="@+id/et_rua"/>
         </LinearLayout>
 
@@ -59,7 +59,7 @@
                 android:layout_marginRight="8dp"
                 android:layout_marginTop="6dp"
 
-                android:hint="Nº"
+                android:hint="Nº*"
                 android:layout_weight="0.7"
                 android:id="@+id/et_n"/>
             <EditText
@@ -69,7 +69,7 @@
                 android:layout_marginRight="8dp"
                 android:layout_marginTop="6dp"
                 android:layout_weight="0.3"
-                android:hint="Bairro"
+                android:hint="Bairro*"
                 android:id="@+id/et_bairro"/>
         </LinearLayout>
         <EditText
@@ -90,7 +90,7 @@
                 android:layout_marginLeft="18dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginTop="6dp"
-                android:hint="Cidade"
+                android:hint="Cidade*"
                 android:layout_weight="0.3"
                 android:id="@+id/et_cidade"/>
             <EditText
@@ -101,7 +101,8 @@
                 android:layout_marginTop="6dp"
                 android:hint="UF"
                 android:layout_weight="0.7"
-                android:id="@+id/et_uf"/>
+                android:id="@+id/et_uf"
+                android:maxLength="2"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
