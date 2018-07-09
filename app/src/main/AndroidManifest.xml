@@ -29,7 +29,8 @@
             android:name=".PrincipalUsuarioActivity"
             android:label="@string/title_activity_principal_usuario"
             android:theme="@style/AppTheme" />
-        <activity android:name=".PerfilActivity"></activity>
+        <activity android:name=".PerfilActivity" />
+        <activity android:name=".BuscarMedicoActivity"></activity>
     </application>
 
 </manifest>

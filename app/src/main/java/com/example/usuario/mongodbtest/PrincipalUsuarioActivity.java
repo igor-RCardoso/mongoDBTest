@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -14,11 +13,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.usuario.mongodbtest.models.Atendimento;
-import com.example.usuario.mongodbtest.utils.AtendimentoAdapter;
+import com.example.usuario.mongodbtest.utils.AgendaPacienteAdapter;
 
 import java.util.List;
 
@@ -53,8 +51,8 @@ public class PrincipalUsuarioActivity extends AppCompatActivity
         ListView lstResultados = (ListView) findViewById(R.id.lstConsultas);
 
         List<Atendimento> atendimentos = null;
-        final AtendimentoAdapter adapter =
-                new AtendimentoAdapter(getBaseContext(), R.layout.atendimento_lista_modelo, atendimentos);
+        final AgendaPacienteAdapter adapter =
+                new AgendaPacienteAdapter(getBaseContext(), R.layout.atendimento_lista_modelo, atendimentos);
         lstResultados.setAdapter(adapter);
 
 //        lstResultados.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -68,6 +66,11 @@ public class PrincipalUsuarioActivity extends AppCompatActivity
 //                startActivity(it);
 //            }
 //        });
+    }
+
+    public void marcarConsulta(View v) {
+        Intent it = new Intent(this, BuscarMedicoActivity.class);
+        startActivity(it);
     }
 
     @Override

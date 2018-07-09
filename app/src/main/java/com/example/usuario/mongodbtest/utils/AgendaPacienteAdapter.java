@@ -18,10 +18,10 @@ import com.example.usuario.mongodbtest.models.Consulta;
 
 import java.util.List;
 
-public class AtendimentoAdapter extends ArrayAdapter<Atendimento> {
+public class AgendaPacienteAdapter extends ArrayAdapter<Atendimento> {
     private List<Atendimento> items;
 
-    public AtendimentoAdapter(Context context, int textViewResourceId, List<Atendimento> items) {
+    public AgendaPacienteAdapter(Context context, int textViewResourceId, List<Atendimento> items) {
         super(context, textViewResourceId, items);
         this.items = items;
     }

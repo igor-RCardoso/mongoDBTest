@@ -1,5 +1,6 @@
 package com.example.usuario.mongodbtest;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -15,7 +16,8 @@ import android.view.View;
 import android.widget.ListView;
 
 import com.example.usuario.mongodbtest.models.Atendimento;
-import com.example.usuario.mongodbtest.utils.AtendimentoAdapter;
+import com.example.usuario.mongodbtest.utils.AgendaMedicoAdapter;
+import com.example.usuario.mongodbtest.utils.AgendaPacienteAdapter;
 
 import java.util.List;
 
@@ -50,8 +52,8 @@ public class PrincipalMedicoActivity extends AppCompatActivity
         ListView lstResultados = (ListView) findViewById(R.id.lstConsultas);
 
         List<Atendimento> atendimentos = null;
-        final AtendimentoAdapter adapter =
-                new AtendimentoAdapter(getBaseContext(), R.layout.atendimento_lista_modelo, atendimentos);
+        final AgendaMedicoAdapter adapter =
+                new AgendaMedicoAdapter(getBaseContext(), R.layout.atendimento_lista_modelo, atendimentos);
         lstResultados.setAdapter(adapter);
 
 //        lstResultados.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -104,8 +106,16 @@ public class PrincipalMedicoActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
-       
+//        if(id == R.id.nav_perfil) {
+//            Intent it = Intent(this,PerfilMedicoActivity.class);
+//            startActivity(it);
+//        } else if (id == R.id.nav_agenda) {
+//            Intent it = Intent(this,AgendaMedicoActivity.class);
+//            startActivity(it);
+//        } else if (id == R.id.nav_historico) {
+//            Intent it = Intent(this,HistoricoMedicoActivity.class);
+//            startActivity(it);
+//        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

@@ -49,10 +49,11 @@
             android:layout_gravity="center_horizontal"
             android:layout_margin="@dimen/fab_margin"
             android:background="#820002"
+            android:textSize="24sp"
             android:text="Marcar uma consulta"
             android:textAppearance="@style/TextAppearance.AppCompat"
             android:textColor="@android:color/background_light"
-            android:textSize="24sp"
+            android:onClick="marcarConsulta"
             />
     </LinearLayout>
 
