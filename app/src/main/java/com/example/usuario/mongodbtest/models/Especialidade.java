@@ -4,6 +4,8 @@ public class Especialidade {
     private String nome;
     private String descricao;
 
+
+
     public String getNome() {
         return nome;
     }

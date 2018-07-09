@@ -47,8 +47,6 @@ public class ClienteCadastroActivity extends FragmentActivity
 
     public Usuario usr;
     public Paciente paciente;
-//    ListView lstView;
-
 
 
     @Override
@@ -92,10 +90,10 @@ public class ClienteCadastroActivity extends FragmentActivity
 
 
     @Override
-    public void goTo2(String nome, String cpf, String email, String tel, String cel, String senha, String repSenha, String desc) {
+    public void goTo2(String nome, String cpf, String email, String tel, String cel, String senha, String repSenha, String desc, String dtNasc, String sexo) {
         //TODO Implementar o model e crirar objeto aqui...
         usr = new Usuario(nome,cpf,email,senha,tel);
-        paciente = new Paciente(nome, new Date("10/10/1029"), "");
+        paciente = new Paciente(nome, new Date(dtNasc), sexo);
         stepView.go(1, true);
         setFragment(new ClienteCadastro2Fragment());
 

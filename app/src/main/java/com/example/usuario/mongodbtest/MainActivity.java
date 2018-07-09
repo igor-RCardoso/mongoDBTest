@@ -1,5 +1,6 @@
 package com.example.usuario.mongodbtest;
 
+import android.content.Intent;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -24,7 +25,13 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void onClick(View view){
-//        MongoDBConnection.getInstance().addToDatabase("Igor");
+    public void cadastroUsuario(View view){
+        Intent it = new Intent(this, ClienteCadastroActivity.class);
+        startActivity(it);
+    }
+
+    public void cadastroMedico(View view){
+        Intent it = new Intent(this, MedicoCadastroActivity.class);
+        startActivity(it);
     }
 }

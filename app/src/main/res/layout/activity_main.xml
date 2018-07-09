@@ -65,7 +65,9 @@
                 android:text="cadastre-se"
                 android:background="@android:color/transparent"
                 android:layout_marginLeft="5dp"
-                android:textColor="#7F7FFF"/>
+                android:textColor="#7F7FFF"
+                android:id="@+id/cadastro_usr"
+                android:onClick="cadastroUsuario"/>
 
 
         </LinearLayout>
@@ -87,7 +89,9 @@
                 android:text="cadastre Seu serviço"
                 android:background="@android:color/transparent"
                 android:layout_marginLeft="5dp"
-                android:textColor="#7F7FFF"/>
+                android:textColor="#7F7FFF"
+                android:id="@+id/cadastro_mdc"
+                android:onClick="cadastroMedico"/>
 
 
         </LinearLayout>

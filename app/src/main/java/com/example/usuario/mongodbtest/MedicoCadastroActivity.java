@@ -1,18 +1,25 @@
 package com.example.usuario.mongodbtest;
 
+import android.app.ProgressDialog;
+import android.os.AsyncTask;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.FrameLayout;
 
+import com.example.usuario.mongodbtest.models.EnderecoModel;
 import com.shuhart.stepview.StepView;
+
+import org.json.JSONArray;
 
 import java.util.ArrayList;
 
-public class MedicoCadastroActivity extends AppCompatActivity {
+public class MedicoCadastroActivity extends AppCompatActivity implements
+        MedicoCadastro1Fragment.OnMedicoCadastro1FragmentListener, MedicoCadastro2Fragment.OnMedicoCadastro2FragmentListener{
 
     FrameLayout mainFrame;
     StepView stepView;
@@ -22,9 +29,9 @@ public class MedicoCadastroActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_medico_cadastro);
 
-        mainFrame = (FrameLayout)findViewById(R.id.main_frame);
+        mainFrame = (FrameLayout)findViewById(R.id.main_frame_medico);
 
-        stepView = (StepView)findViewById(R.id.step_view_cadastro_cliente);
+        stepView = (StepView)findViewById(R.id.step_view_cadastro_medico);
 
         stepView.getState()
                 .selectedTextColor(ContextCompat.getColor(this, R.color.colorAccent))
@@ -45,7 +52,7 @@ public class MedicoCadastroActivity extends AppCompatActivity {
                 .typeface(ResourcesCompat.getFont(this, R.font.roboto))
                 .commit();
 
-        ClienteCadastro1Fragment clienteCadastro1Fragment = new ClienteCadastro1Fragment();
+        MedicoCadastro1Fragment clienteCadastro1Fragment = new MedicoCadastro1Fragment();
         setFragment(clienteCadastro1Fragment);
     }
 
@@ -54,4 +61,20 @@ public class MedicoCadastroActivity extends AppCompatActivity {
         fragmentTransaction.replace(R.id.main_frame_medico, fragment);
         fragmentTransaction.commit();
     }
+
+    @Override
+    public void goTo2(String nome, String cpf, String crm, String email, String tel, String cel, String senha, String repSenha) {
+        stepView.go(1, true);
+        setFragment(new MedicoCadastro2Fragment());
+    }
+
+    @Override
+    public void goTo3(EnderecoModel enderecoModel) {
+        JSONArray specs = Rresources.getInstance().getEspecialidades();
+        if(specs == null){
+            Log.d("specs", "Erro");
+        }
+    }
+
+
 }

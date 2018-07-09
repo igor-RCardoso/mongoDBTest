@@ -32,6 +32,8 @@ public class ClienteCadastro1Fragment extends Fragment {
     public EditText etSenha;
     public EditText etRepSenha;
     public EditText etObs;
+    public EditText etDtNasc;
+    public EditText etSexo;
     public CheckBox cbHiv;
     public CheckBox cbDiabete;
     public CheckBox cbTestJeova;
@@ -84,6 +86,8 @@ public class ClienteCadastro1Fragment extends Fragment {
         etCel = view.findViewById(R.id.etCel);
         etSenha = view.findViewById(R.id.etSenha);
         etRepSenha = view.findViewById(R.id.etRepetirSenha);
+        etDtNasc = view.findViewById(R.id.etDtNasc);
+        etSexo = view.findViewById(R.id.etSexo);
         etObs = view.findViewById(R.id.etObs);
         cbHiv = view.findViewById(R.id.cbHiv);
         cbDiabete = view.findViewById(R.id.cbDiabete);
@@ -102,10 +106,10 @@ public class ClienteCadastro1Fragment extends Fragment {
 
                 if(!etObs.getText().toString().isEmpty()) desc = desc  + etObs.getText().toString();
 
-                if(validaCampos(etNome, etCpf, etEmail, etTel, etCel, etSenha, etRepSenha)) {
+                if(validaCampos(etNome, etCpf, etEmail, etTel, etCel, etSenha, etRepSenha, etDtNasc, etSexo)) {
                     mListener.goTo2(etNome.getText().toString(), etCpf.getText().toString(),
                             etEmail.getText().toString(), etTel.getText().toString(), etCel.getText().toString(),
-                            etSenha.getText().toString(), etRepSenha.getText().toString(), desc);
+                            etSenha.getText().toString(), etRepSenha.getText().toString(), desc, etDtNasc.getText().toString(), etSexo.getText().toString() );
                 }
             }
         });
@@ -113,7 +117,7 @@ public class ClienteCadastro1Fragment extends Fragment {
     }
 
     public boolean validaCampos(EditText etNome, EditText etCpf, EditText etEmail, EditText etTel,
-                                EditText etCel, EditText etSenha, EditText etRepSenha){
+                                EditText etCel, EditText etSenha, EditText etRepSenha, EditText etDtNasc, EditText etSexo){
         boolean flag = true;
         if(etNome.getText().toString().isEmpty()){
             etNome.setError("Campo obrigatório");
@@ -143,6 +147,14 @@ public class ClienteCadastro1Fragment extends Fragment {
         }
         if(etRepSenha.getText().toString().isEmpty()){
             etRepSenha.setError("Campo obrigatório");
+            flag = false;
+        }
+        if(etDtNasc.getText().toString().isEmpty()){
+            etDtNasc.setError("Campo obrigatório");
+            flag = false;
+        }
+        if(etSexo.getText().toString().isEmpty()){
+            etSexo.setError("Campo obrigatório");
             flag = false;
         }
 
@@ -176,7 +188,7 @@ public class ClienteCadastro1Fragment extends Fragment {
 
     public interface OnClienteCadastro1FragmentListener {
         void goTo2(String nome, String cpf, String email,
-                     String tel, String cel, String senha, String repSenha, String desc);
+                     String tel, String cel, String senha, String repSenha, String desc, String dtNasc, String sexo);
     }
 
 

@@ -111,7 +111,8 @@ public class Usuario implements Serializable{
             String sqlQuery = "insert into pacientes values('";
             sqlQuery += pac.getNome() + "', '', to_date('" + new SimpleDateFormat("yyyy-MM-dd").format(pac.getDataNasc()) + "', 'YYYY-MM-DD'),";
             sqlQuery += "'" + pac.getSexo() + "', '',";
-            sqlQuery += "(select ref(e) from enderecos e where e.id = " + Integer.toString(EnderecoModel.contador) + "));\n";
+            sqlQuery += "CURRENT_DATE,";
+            sqlQuery += "(select cast(collect(ref(e)) as list_enderecos) from enderecos e where e.id = " + Integer.toString(EnderecoModel.contador) + "));\n";
             EnderecoModel.contador++;
             sqlFinal += sqlQuery;
         }
@@ -131,8 +132,9 @@ public class Usuario implements Serializable{
 
         sqlFinal += sqlQuery;
 
-        BDConn db = new BDConn();
-        db.execute(new Pair<Integer, String>(5000, "192.168.0.106"));
+        BDConn bd = new BDConn();
+
+        bd.execute(new Pair<Integer, String>(5000, "192.168.0.106"));
 
         OracleRequest orc = new OracleRequest();
 

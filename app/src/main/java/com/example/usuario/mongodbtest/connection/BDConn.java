@@ -4,10 +4,16 @@ import android.os.AsyncTask;
 import android.util.Log;
 import android.util.Pair;
 
+import com.example.usuario.mongodbtest.Rresources;
+
+import org.json.JSONArray;
+
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+
+import request.Request;
 
 public class BDConn extends AsyncTask<Pair<Integer, String>, Void, Void> {
 
@@ -29,6 +35,13 @@ public class BDConn extends AsyncTask<Pair<Integer, String>, Void, Void> {
             Log.d("socket", e.getClass().getSimpleName() + ": " + e.getMessage());
         }
         setConn = true;
+        try {
+            _out.writeObject(new Request("select", "especialidades", new JSONArray(), ""));
+            Request resp = (Request)_in.readObject();
+            Rresources.arr = resp.JSON();
+        }catch(Exception e){
+            Log.d("specs", "erro");
+        }
         return null;
     }
 }
