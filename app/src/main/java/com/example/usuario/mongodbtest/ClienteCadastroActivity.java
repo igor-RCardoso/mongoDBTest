@@ -80,7 +80,7 @@ public class ClienteCadastroActivity extends FragmentActivity
 
         ClienteCadastro1Fragment clienteCadastro1Fragment = new ClienteCadastro1Fragment();
         setFragment(clienteCadastro1Fragment);
-        
+
     }
 
 
