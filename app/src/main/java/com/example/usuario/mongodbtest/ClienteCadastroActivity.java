@@ -131,7 +131,8 @@ public class ClienteCadastroActivity extends FragmentActivity
 
         usr.getDependentes().add(paciente);
 
-        usr.saveUsr();
+        //TODO: DIRECIONAR PARA TELA PRINCIPAL DO USUARIO
+//        usr.saveUsr();
 
 
     }

@@ -70,10 +70,12 @@ public class MedicoCadastroActivity extends AppCompatActivity implements
 
     @Override
     public void goTo3(EnderecoModel enderecoModel) {
-        JSONArray specs = Rresources.getInstance().getEspecialidades();
-        if(specs == null){
-            Log.d("specs", "Erro");
-        }
+//        JSONArray specs = Rresources.getInstance().getEspecialidades();
+//        if(specs == null){
+//            Log.d("specs", "Erro");
+//        }
+
+        //TODO:REDIRICIONAR PARA TELA INCIAL DO MEDICO..
     }
 
 
