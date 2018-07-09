@@ -31,13 +31,16 @@
             android:layout_marginTop="50dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            android:hint="Usuário" />
+            android:hint="Usuário"
+            android:id="@+id/et_login_usr"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            android:hint="Password"/>
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:id="@+id/et_login_senha"/>
         <Button
             android:layout_width="match_parent"
             android:layout_height="50dp"
