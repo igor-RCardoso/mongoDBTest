@@ -28,7 +28,8 @@
         <activity
             android:name=".PrincipalUsuarioActivity"
             android:label="@string/title_activity_principal_usuario"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
+        <activity android:name=".PerfilActivity"></activity>
     </application>
 
 </manifest>

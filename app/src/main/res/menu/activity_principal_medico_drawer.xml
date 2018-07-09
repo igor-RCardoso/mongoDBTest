@@ -7,10 +7,10 @@
             android:title="Perfil" />
         <item
             android:id="@+id/nav_agendar"
-            android:title="Listar Consultas" />
+            android:title="Agenda" />
         <item
             android:id="@+id/nav_cadastrar"
-            android:title="Cadastrar Paciente" />
+            android:title="Historico" />
     </group>
 
     <!--<item android:title="">-->
