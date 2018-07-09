@@ -9,6 +9,7 @@ import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.Pair;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,20 +18,35 @@ import android.widget.ListView;
 
 import java.sql.*;
 
+import com.example.usuario.mongodbtest.connection.BDConn;
+import com.example.usuario.mongodbtest.connection.OracleRequest;
 import com.example.usuario.mongodbtest.models.CartaoModel;
 import com.example.usuario.mongodbtest.models.EnderecoModel;
+import com.example.usuario.mongodbtest.models.Paciente;
+import com.example.usuario.mongodbtest.models.Usuario;
 import com.example.usuario.mongodbtest.utils.ClienteCartaoAdapter;
 import com.example.usuario.mongodbtest.utils.CustomAdapter;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import com.shuhart.stepview.StepView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+
+import request.Request;
 
 public class ClienteCadastroActivity extends FragmentActivity
         implements ClienteCadastro1Fragment.OnClienteCadastro1FragmentListener,
         ClienteCadastro2Fragment.OnClienteCadastro2FragmentListener, ClienteCadastro3Fragment.OnClienteCadastro3FragmentListener{
     FrameLayout mainFrame;
     StepView stepView;
+
+    public Usuario usr;
+    public Paciente paciente;
 //    ListView lstView;
 
 
@@ -62,10 +78,9 @@ public class ClienteCadastroActivity extends FragmentActivity
                 .typeface(ResourcesCompat.getFont(this, R.font.roboto))
                 .commit();
 
-        ClienteCadastro2Fragment clienteCadastro1Fragment = new ClienteCadastro2Fragment();
+        ClienteCadastro1Fragment clienteCadastro1Fragment = new ClienteCadastro1Fragment();
         setFragment(clienteCadastro1Fragment);
-
-
+        
     }
 
 
@@ -79,31 +94,47 @@ public class ClienteCadastroActivity extends FragmentActivity
     @Override
     public void goTo2(String nome, String cpf, String email, String tel, String cel, String senha, String repSenha, String desc) {
         //TODO Implementar o model e crirar objeto aqui...
+        usr = new Usuario(nome,cpf,email,senha,tel);
+        paciente = new Paciente(nome, new Date("10/10/1029"), "");
         stepView.go(1, true);
         setFragment(new ClienteCadastro2Fragment());
 
+
     }
 
     @Override
-    public void goTo3(List<EnderecoModel> enderecoModels) {
+    public void goTo3(EnderecoModel enderecoModel) {
+//        paciente = new Paciente()
+        paciente.setEndereco(enderecoModel);
         stepView.go(2, true);
         setFragment(new ClienteCadastro3Fragment());
     }
-
-    @Override
-    public void addEndereco(List<EnderecoModel> enderecoModels, ListView lstView) {
-        CustomAdapter adapter = new CustomAdapter(getApplicationContext(), enderecoModels);
-        Log.i("TESTE", lstView.getId() + "");
-        Log.i("TESTE", enderecoModels.size() + "");
-        Log.i("TESTE", adapter.toString());
-
-
-        lstView.setAdapter(adapter);
-    }
+//
+//    @Override
+//    public void addEndereco(List<EnderecoModel> enderecoModels, ListView lstView) {
+//        CustomAdapter adapter = new CustomAdapter(getApplicationContext(), enderecoModels);
+//        Log.i("TESTE", lstView.getId() + "");
+//        Log.i("TESTE", enderecoModels.size() + "");
+//        Log.i("TESTE", adapter.toString());
+//
+//
+//        lstView.setAdapter(adapter);
+//    }
 
     @Override
     public void addCartao(List<CartaoModel> cartaoModels, ListView lstView) {
         ClienteCartaoAdapter adapter = new ClienteCartaoAdapter(getApplicationContext(), cartaoModels);
         lstView.setAdapter(adapter);
+    }
+
+    @Override
+    public void finalizar(List<CartaoModel> cartaoModels) {
+        usr.setCartoes(cartaoModels);
+
+        usr.getDependentes().add(paciente);
+
+        usr.saveUsr();
+
+
     }
 }

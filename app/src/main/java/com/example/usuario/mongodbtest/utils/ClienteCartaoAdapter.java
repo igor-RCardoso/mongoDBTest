@@ -46,7 +46,13 @@ public class ClienteCartaoAdapter  extends BaseAdapter {
         View view = inflater.inflate(R.layout.row, null);
         TextView txtUser = (TextView) view.findViewById(R.id.txtUser);
         txtUser.setText(this.lstCartao.get(position).getApelido());
+        ImageButton removeBt = view.findViewById(R.id.bt_exclir_linha);
+        removeBt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+            }
+        });
         return view;
     }
 }

@@ -1,18 +1,26 @@
 package com.example.usuario.mongodbtest.models;
 
 import java.util.Date;
+import java.util.List;
 
 public class Paciente {
     private String nome;
     private Date dataNasc;
     private String sexo;
-    private int reputacao;
+    private EnderecoModel endereco;
 
-    public Paciente(String nome, Date dataNasc, String sexo, int reputacao) {
+    public Paciente(String nome, Date dataNasc, String sexo) {
         this.nome = nome;
         this.dataNasc = dataNasc;
         this.sexo = sexo;
-        this.reputacao = reputacao;
+    }
+
+    public EnderecoModel getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(EnderecoModel endereco) {
+        this.endereco = endereco;
     }
 
     public String getNome() {
@@ -39,11 +47,4 @@ public class Paciente {
         this.sexo = sexo;
     }
 
-    public int getReputacao() {
-        return reputacao;
-    }
-
-    public void setReputacao(int reputacao) {
-        this.reputacao = reputacao;
-    }
 }

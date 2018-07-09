@@ -40,7 +40,7 @@ public class ClienteCadastro2Fragment extends Fragment {
 
     private OnClienteCadastro2FragmentListener mListener;
 
-    public Button mButtonAdd;
+//    public Button mButtonAdd;
     public Button mButtonNext;
     public EditText etCep;
     public EditText etRua;
@@ -49,7 +49,7 @@ public class ClienteCadastro2Fragment extends Fragment {
     public EditText etComplemento;
     public EditText etCidade;
     public EditText etUf;
-    public ListView lstView;
+//    public ListView lstView;
 
     public List<EnderecoModel> enderecoModels;
 
@@ -95,7 +95,7 @@ public class ClienteCadastro2Fragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_cliente_cadastro2, container, false);
 
-        mButtonAdd = view.findViewById(R.id.addEnd);
+//        mButtonAdd = view.findViewById(R.id.addEnd);
         etBairro = view.findViewById(R.id.et_bairro);
         etCep = view.findViewById(R.id.et_cep);
         etCidade = view.findViewById(R.id.et_cidade);
@@ -103,37 +103,42 @@ public class ClienteCadastro2Fragment extends Fragment {
         etN = view.findViewById(R.id.et_n);
         etRua = view.findViewById(R.id.et_rua);
         etUf = view.findViewById(R.id.et_uf);
-        lstView = view.findViewById(R.id.list_view_endereco);
+//        lstView = view.findViewById(R.id.list_view_endereco);
         mButtonNext = view.findViewById(R.id.btCadastro2);
 
-        lstView.getId();
+//        lstView.getId();
 
-        enderecoModels = new ArrayList<EnderecoModel>();
+//        enderecoModels = new ArrayList<EnderecoModel>();
 
-        mButtonAdd.setOnClickListener(new View.OnClickListener() {
+//        mButtonAdd.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                EnderecoModel enderecoModel = new EnderecoModel(etRua.getText().toString(), etN.getText().toString(),
+//                etBairro.getText().toString(), etCidade.getText().toString(), etUf.getText().toString(),
+//                etComplemento.getText().toString(), etCep.getText().toString());
+//                if(validaCampos(etBairro, etCep, etCidade, etN, etRua, etUf)) {
+//                    enderecoModels.add(enderecoModel);
+//                    mListener.addEndereco(enderecoModels, lstView);
+//                    etCep.setText("");
+//                    etBairro.setText("");
+//                    etCidade.setText("");
+//                    etComplemento.setText("");
+//                    etN.setText("");
+//                    etUf.setText("");
+//                    etRua.setText("");
+//                }
+
+//            }
+//        });
+        mButtonNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 EnderecoModel enderecoModel = new EnderecoModel(etRua.getText().toString(), etN.getText().toString(),
                 etBairro.getText().toString(), etCidade.getText().toString(), etUf.getText().toString(),
                 etComplemento.getText().toString(), etCep.getText().toString());
                 if(validaCampos(etBairro, etCep, etCidade, etN, etRua, etUf)) {
-                    enderecoModels.add(enderecoModel);
-                    mListener.addEndereco(enderecoModels, lstView);
-                    etCep.setText("");
-                    etBairro.setText("");
-                    etCidade.setText("");
-                    etComplemento.setText("");
-                    etN.setText("");
-                    etUf.setText("");
-                    etRua.setText("");
+                    mListener.goTo3(enderecoModel);
                 }
-
-            }
-        });
-        mButtonNext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mListener.goTo3(enderecoModels);
             }
         });
 
@@ -197,9 +202,9 @@ public class ClienteCadastro2Fragment extends Fragment {
     }
 
     public interface OnClienteCadastro2FragmentListener {
-        void goTo3(List<EnderecoModel> enderecoModels);
+        void goTo3(EnderecoModel enderecoModel);
 
-        void addEndereco(List<EnderecoModel> enderecoModels, ListView lstView);
+//        void addEndereco(List<EnderecoModel> enderecoModels, ListView lstView);
     }
 
 }

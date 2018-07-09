@@ -13,6 +13,8 @@ import android.widget.EditText;
 import android.widget.ListView;
 
 import com.example.usuario.mongodbtest.models.CartaoModel;
+import com.example.usuario.mongodbtest.models.Paciente;
+import com.example.usuario.mongodbtest.models.Usuario;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +35,7 @@ public class ClienteCadastro3Fragment extends Fragment {
     public EditText etApelido;
     public Button mButtonAdd;
     public ListView lstView;
-
+    public Button mButtonFinalizar;
     public List<CartaoModel> cartaoModels;
 
     private OnClienteCadastro3FragmentListener mListener;
@@ -79,6 +81,14 @@ public class ClienteCadastro3Fragment extends Fragment {
         etTitular = view.findViewById(R.id.nm_titular);
         mButtonAdd = view.findViewById(R.id.bt_add_cartao);
         lstView = view.findViewById(R.id.list_view_financeiro);
+        mButtonFinalizar = view.findViewById(R.id.finalizar_cadastro);
+
+        mButtonFinalizar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mListener.finalizar(cartaoModels);
+            }
+        });
 
         mButtonAdd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -128,5 +138,7 @@ public class ClienteCadastro3Fragment extends Fragment {
 
     public interface OnClienteCadastro3FragmentListener {
         void addCartao(List<CartaoModel> cartaoModels, ListView lstView);
+
+        void finalizar(List<CartaoModel> cartaoModels);
     }
 }

@@ -2,6 +2,7 @@ package com.example.usuario.mongodbtest.models;
 
 public class EnderecoModel {
 
+    public static int contador = 106;
     private String rua;
     private String numero;
     private String bairro;
